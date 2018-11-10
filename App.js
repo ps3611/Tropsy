@@ -1,26 +1,20 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Row from './Row.js';
+import data from './atp-rankings.json';
 
-const data = [
-  4,
-  3,
-  2,
-  4,
-  2,
-  5,
-  2,
-  53,
-  2,
-  5,
-];
+// const data = [
+//   { name: 'Novak Djokovic', nationality: 'SRB', ranking: 1, age: 31, points: 4000 },
+//   { name: 'Novak Djokovic', nationality: 'SRB', ranking: 1, age: 31, points: 4000 },
+//   { name: 'Novak Djokovic', nationality: 'SRB', ranking: 1, age: 31, points: 4000 }
+// ];
 
 export default class App extends React.Component {
   render() {
     const rows = data.map((el,i) => {
       return <Row
         key={i}
-        value={el}
+        value={el.fields.player_name}
         />
     })
     return (
