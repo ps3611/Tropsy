@@ -1,5 +1,6 @@
 import React from 'react';
-import { ScrollView } from 'react-native';
+import { View, ScrollView } from 'react-native';
+import Navbar from './Navbar.js';
 import Row from './Row.js';
 import data from './data.json';
 
@@ -29,9 +30,12 @@ export default class App extends React.Component {
       );
     });
     return (
-      <ScrollView>
-        {rows}
-      </ScrollView>
+      <View>
+        <Navbar />
+        <ScrollView>
+          {rows}
+        </ScrollView>
+      </View>
     );
   }
 }
