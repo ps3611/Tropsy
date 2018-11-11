@@ -13,11 +13,17 @@ export default class App extends React.Component {
         <Row
           key={i}
           currentRank={el.rank_current}
+          highestRank={el.rank_highest}
+          rankChange={el.rank_change}
           playerName={el.player_name}
           playerImage={el.player_image}
           playerCountry={el.player_country}
-          playerCountryImage={el.player_country_image}
-          playerPoints={el.points_current}
+          currentTournamentName={el.current_tournament_name}
+          currentTournamentRound={el.current_tournament_round}
+          pointsCurrent={el.points_current}
+          pointsChange={el.points_change}
+          pointsNext={el.points_next}
+          pointsNextProb={el.points_next_prob}
         />
       );
     });
