@@ -63,7 +63,7 @@
   "player_age": "30.1",
   "current_tournament_name": "World Tour Finals",
   "current_tournament_round": "RR",
-  "in_tournament": true,
+  "in_tournament": false,
   "video": "",
   "points_current":5300,
   "points_next":"",

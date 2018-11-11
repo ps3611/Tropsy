@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 
 /* eslint-disable react/prefer-stateless-function, react/jsx-filename-extension, react/prop-types */
 
@@ -21,6 +21,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingTop: 20,
     height: 60,
-    backgroundColor: 'yellow',
+    backgroundColor: '#F7F7F7',
+    borderBottomColor: 'lightgrey',
+    borderBottomWidth: 0.5,
   },
 });
