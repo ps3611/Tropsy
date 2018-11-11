@@ -20,6 +20,7 @@ export default class App extends React.Component {
           playerCountry={el.player_country}
           currentTournamentName={el.current_tournament_name}
           currentTournamentRound={el.current_tournament_round}
+          inTournament={el.in_tournament}
           pointsCurrent={el.points_current}
           pointsChange={el.points_change}
           pointsNext={el.points_next}
