@@ -30,7 +30,6 @@ export default class Row extends React.Component {
     let pointsChangeDisplay;
     if (pointsChange > 0) pointsChangeDisplay = <Text style={{ color: 'green', fontSize: 10 }}>▲{Math.abs(pointsChange)}</Text>;
     else if (pointsChange < 0) pointsChangeDisplay = <Text style={{ color: 'red', fontSize: 10 }}>▼{Math.abs(pointsChange)}</Text>;
-    else pointsChangeDisplay = <Text />;
 
     let pointsNextProbDisplay;
     if (pointsNextProb) {
@@ -40,13 +39,13 @@ export default class Row extends React.Component {
           <Text style={{ fontSize: 10 }}>%</Text>
         </View>
       );
-    } else pointsNextProbDisplay = <Text />;
+    }
 
     return (
       <View style={[styles.row, inTournament ? styles.active : styles.inactive]}>
         <View id="Ranking" style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
           <Text />
-          <Text style={{ fontSize: 15 }}>{currentRank}</Text>
+          <Text style={{ fontSize: 16 }}>{currentRank}</Text>
           {rankChangeDisplay}
         </View>
         <View id="Image" style={{ flex: 2, padding: 2 }}>
@@ -66,12 +65,10 @@ export default class Row extends React.Component {
           </View>
           <View id="Points" style={{ flex: 3, flexDirection: 'row' }}>
             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-              <Text />
               <Text>{pointsCurrent}</Text>
               {pointsChangeDisplay}
             </View>
             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-              <Text />
               <Text>{pointsNext}</Text>
               {pointsNextProbDisplay}
             </View>
