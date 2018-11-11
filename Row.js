@@ -23,16 +23,15 @@ export default class Row extends React.Component {
     } = this.props;
     return (
       <View style={[styles.row, inTournament ? styles.active : styles.inactive]}>
+        <View id="Ranking" style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+          <Text>{currentRank}</Text>
+          <Text>{rankChange}</Text>
+        </View>
         <View id="Image" style={{ flex: 2 }}>
           <Image
             style={{ flex: 1 }}
             source={{ uri: playerImage }}
           />
-        </View>
-        <View id="Ranking" style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-          <Text>{currentRank}</Text>
-          <Text>{rankChange}</Text>
-          <Text>{highestRank}</Text>
         </View>
         <View style={{ flex: 9, flexDirection: 'row', justifyContent: 'space-between', borderBottomColor: 'lightgrey', borderBottomWidth: 0.5 }}>
           <View id="Player" style={{ flex: 3, justifyContent: 'center', alignItems: 'center' }}>
@@ -63,7 +62,7 @@ const styles = StyleSheet.create({
   row: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    height: 60,
+    height: 50,
   },
   active: {
     backgroundColor: '#9CF78F',
