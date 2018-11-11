@@ -1,14 +1,14 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
 
-/* eslint-disable react/prefer-stateless-function, react/jsx-filename-extension, react/prop-types */
+/* eslint-disable react/prefer-stateless-function, react/jsx-filename-extension, react/prop-types,
+react/jsx-one-expression-per-line */
 
 
 export default class Row extends React.Component {
   render() {
     const {
       currentRank,
-      highestRank,
       rankChange,
       playerImage,
       playerName,
@@ -21,13 +21,25 @@ export default class Row extends React.Component {
       pointsNext,
       pointsNextProb,
     } = this.props;
+
+    let rankChangeDisplay;
+    if (rankChange > 0) rankChangeDisplay = <Text style={{ color: 'green', fontSize: 10 }}>▲{Math.abs(rankChange)}</Text>;
+    else if (rankChange < 0) rankChangeDisplay = <Text style={{ color: 'red', fontSize: 10 }}>▼{Math.abs(rankChange)}</Text>;
+    else rankChangeDisplay = <Text />;
+
+    let pointsChangeDisplay;
+    if (pointsChange > 0) pointsChangeDisplay = <Text style={{ color: 'green', fontSize: 10 }}>▲{Math.abs(pointsChange)}</Text>;
+    else if (pointsChange < 0) pointsChangeDisplay = <Text style={{ color: 'red', fontSize: 10 }}>▼{Math.abs(pointsChange)}</Text>;
+    else pointsChangeDisplay = <Text />;
+
     return (
       <View style={[styles.row, inTournament ? styles.active : styles.inactive]}>
         <View id="Ranking" style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-          <Text>{currentRank}</Text>
-          <Text>{rankChange}</Text>
+          <Text />
+          <Text style={{ fontSize: 15 }}>{currentRank}</Text>
+          {rankChangeDisplay}
         </View>
-        <View id="Image" style={{ flex: 2 }}>
+        <View id="Image" style={{ flex: 2, padding: 2 }}>
           <Image
             style={{ flex: 1 }}
             source={{ uri: playerImage }}
@@ -44,8 +56,9 @@ export default class Row extends React.Component {
           </View>
           <View id="Points" style={{ flex: 3, flexDirection: 'row' }}>
             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+              <Text />
               <Text>{pointsCurrent}</Text>
-              <Text>{pointsChange}</Text>
+              {pointsChangeDisplay}
             </View>
             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
               <Text>{pointsNext}</Text>
