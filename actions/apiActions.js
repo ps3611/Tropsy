@@ -8,7 +8,7 @@ export const PLAYER_LIST_FAILURE = '@@api/PLAYER_LIST_FAILURE';
 
 export const fetchPlayerList = () => ({
   [RSAA]: {
-    endpoint: `${baseUrl}/x`,
+    endpoint: `${baseUrl}/players`,
     method: 'GET',
     headers: { 'Content-Type': 'application/json' },
     types: [PLAYER_LIST_RESQUEST, PLAYER_LIST_SUCCESS, PLAYER_LIST_FAILURE],
