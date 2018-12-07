@@ -15,7 +15,6 @@ class Rankings extends React.Component {
 
   render() {
     const { data } = this.props;
-    console.log(data);
     const rows = data.map((player, i) => {
       return (
         <Row

@@ -65,10 +65,12 @@ export default class Row extends React.Component {
           </View>
           <View id="Points" style={{ flex: 3, flexDirection: 'row' }}>
             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+              {pointsChangeDisplay ? <Text /> : <View />}
               <Text>{pointsCurrent}</Text>
               {pointsChangeDisplay}
             </View>
             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+              {pointsNextProbDisplay ? <Text /> : <View />}
               <Text>{pointsNext}</Text>
               {pointsNextProbDisplay}
             </View>

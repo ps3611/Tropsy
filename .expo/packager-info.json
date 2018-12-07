@@ -3,7 +3,7 @@
   "expoServerPort": null,
   "packagerPort": null,
   "packagerPid": null,
-  "expoServerNgrokUrl": "https://td-b6s.anonymous.tr-front.exp.direct",
-  "packagerNgrokUrl": "https://packager.td-b6s.anonymous.tr-front.exp.direct",
-  "ngrokPid": 36746
+  "expoServerNgrokUrl": null,
+  "packagerNgrokUrl": null,
+  "ngrokPid": null
 }
