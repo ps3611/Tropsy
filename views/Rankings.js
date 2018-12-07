@@ -15,22 +15,23 @@ class Rankings extends React.Component {
 
   render() {
     const { data } = this.props;
+    console.log(data);
     const rows = data.map((player, i) => {
       return (
         <Row
           key={i}
-          currentRank={player.ranking.tour}
-          highestRank={player.ranking.tour_highest}
-          rankChange={player.ranking.tour_change}
-          playerName={`${player.player_details.first_name} ${player.player_details.last_name}`}
-          playerImage={player.player_details.image}
-          playerCountry={player.player_details.country}
-          currentTournamentName={player.current_tournament.name}
-          currentTournamentRound={player.current_tournament.round}
-          inTournament={player.current_tournament.in_tournament}
-          pointsCurrent={player.points.tour_live}
-          pointsChange={player.points.tour_change}
-          pointsNext={player.points.tour_next}
+          currentRank={player.ranking_tour}
+          highestRank={player.ranking_tour_highest}
+          rankChange={player.ranking_tour_change}
+          playerName={`${player.first_name} ${player.last_name}`}
+          playerImage={player.image_url}
+          playerCountry={player.country}
+          currentTournamentName={player.current_tournament_name}
+          currentTournamentRound={player.current_tournament_round}
+          inTournament={player.in_tournament}
+          pointsCurrent={player.points_tour_live}
+          pointsChange={player.points_tour_change}
+          pointsNext={player.points_tour_next}
           pointsNextProb={player.next_prob}
         />
       );
