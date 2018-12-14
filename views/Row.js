@@ -22,6 +22,8 @@ export default class Row extends React.Component {
       pointsNextProb,
     } = this.props;
 
+    const flagImageUrl = `https://s3.eu-west-2.amazonaws.com/tennisroo/flags/${playerCountry}.png`;
+
     let rankChangeDisplay;
     if (rankChange > 0) rankChangeDisplay = <Text style={{ color: 'green', fontSize: 10 }}>▲{Math.abs(rankChange)}</Text>;
     else if (rankChange < 0) rankChangeDisplay = <Text style={{ color: 'red', fontSize: 10 }}>▼{Math.abs(rankChange)}</Text>;
@@ -48,10 +50,10 @@ export default class Row extends React.Component {
           <Text style={{ fontSize: 16 }}>{currentRank}</Text>
           {rankChangeDisplay}
         </View>
-        <View id="Image" style={{ flex: 2, padding: 2 }}>
+        <View id="Image" style={{ flex: 1, padding: 8 }}>
           <Image
-            style={{ flex: 1 }}
-            source={{ uri: playerImage }}
+            style={{ flex: 1, width: null, height: null, resizeMode: 'contain' }}
+            source={{ uri: flagImageUrl }}
           />
         </View>
         <View style={{ flex: 9, flexDirection: 'row', justifyContent: 'space-between', borderBottomColor: 'lightgrey', borderBottomWidth: 0.5 }}>
