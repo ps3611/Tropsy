@@ -10,7 +10,6 @@ export default class Row extends React.Component {
     const {
       currentRank,
       rankChange,
-      playerImage,
       playerName,
       playerCountry,
       currentTournamentName,

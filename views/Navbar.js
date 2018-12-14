@@ -31,7 +31,7 @@ export default class Navbar extends React.Component {
             onPress={this.updateIndex}
             selectedIndex={selectedIndex}
             buttons={buttons}
-            containerStyle={{ margin: 15, backgroundColor: 'red', borderRadius: 10 }}
+            containerStyle={{ margin: 15, backgroundColor: '#9CF78F', borderRadius: 10 }}
           />
         </View>
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
