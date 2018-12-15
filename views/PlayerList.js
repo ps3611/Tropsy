@@ -8,9 +8,13 @@ import Row from './Row.js';
 
 class AtpView extends React.Component {
 
+  sortFunction = (player1, player2) => {
+    return player2[this.props.sortType] - player1[this.props.sortType];
+  }
+
   render() {
     const { data } = this.props;
-    const rows = data.map((player, i) => {
+    const rows = data.sort(this.sortFunction).map((player, i) => {
       return (
         <Row
           key={i}

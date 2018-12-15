@@ -3,8 +3,7 @@ import { View } from 'react-native';
 import { connect } from 'react-redux';
 import { fetchPlayerList } from '../actions/apiActions.js';
 import Navbar from './Navbar.js';
-import AtpView from './AtpView.js';
-import EloView from './EloView.js';
+import PlayerList from './PlayerList.js';
 
 /* eslint-disable react/prefer-stateless-function, react/jsx-filename-extension, react/prop-types */
 
@@ -16,11 +15,13 @@ class Rankings extends React.Component {
 
   render() {
     const { selectedRankingsViewIndex } = this.props;
-    const rankingsView = selectedRankingsViewIndex === 0 ? <AtpView /> : <EloView />;
+    const sortType = selectedRankingsViewIndex === 0 ? 'points_tour_live' : 'elo';
     return (
       <View>
         <Navbar />
-        { rankingsView }
+        <PlayerList
+          sortType={sortType}
+        />
       </View>
     );
   }
