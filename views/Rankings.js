@@ -9,17 +9,19 @@ import EloView from './EloView.js';
 
 class Rankings extends React.Component {
   render() {
-    const conditional = true ? <EloView /> : <AtpView />;
+    const { selectedRankingsView } = this.props;
+    const rankingsView = selectedRankingsView === 'ATP' ? <AtpView /> : <EloView />;
     return (
       <View>
         <Navbar />
-        { conditional }
+        { rankingsView }
       </View>
     );
   }
 }
 
 const mapStateToProps = state => ({
+  selectedRankingsView: state.settings.selectedRankingsView,
 });
 
 const mapDispatchToProps = dispatch => ({
