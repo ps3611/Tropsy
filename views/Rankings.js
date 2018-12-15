@@ -9,8 +9,8 @@ import EloView from './EloView.js';
 
 class Rankings extends React.Component {
   render() {
-    const { selectedRankingsView } = this.props;
-    const rankingsView = selectedRankingsView === 'ATP' ? <AtpView /> : <EloView />;
+    const { selectedRankingsViewIndex } = this.props;
+    const rankingsView = selectedRankingsViewIndex === 0 ? <AtpView /> : <EloView />;
     return (
       <View>
         <Navbar />
@@ -21,7 +21,7 @@ class Rankings extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  selectedRankingsView: state.settings.selectedRankingsView,
+  selectedRankingsViewIndex: state.settings.selectedRankingsViewIndex,
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -1,7 +1,7 @@
 import * as settings from '../actions/settingsAction.js';
 
 const initialState = {
-  selectedRankingsView: 'ATP',
+  selectedRankingsViewIndex: 0,
   errors: {},
 };
 
@@ -10,7 +10,7 @@ export default (state = initialState, action) => {
     case settings.SELECT_RANKINGS_VIEW:
       return {
         ...state,
-        selectedRankingsView: action.payload,
+        selectedRankingsViewIndex: action.payload,
       };
     default:
       return state;
