@@ -8,10 +8,6 @@ import Row from './Row.js';
 
 class AtpView extends React.Component {
 
-  componentDidMount() {
-    this.props.fetchPlayerList();
-  }
-
   render() {
     const { data } = this.props;
     const rows = data.map((player, i) => {
@@ -49,7 +45,6 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchPlayerList: () => dispatch(fetchPlayerList()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AtpView);

@@ -8,11 +8,6 @@ import Row from './Row.js';
 /* eslint-disable react/prefer-stateless-function, react/jsx-filename-extension, react/prop-types */
 
 class EloView extends React.Component {
-
-  componentDidMount() {
-    this.props.fetchPlayerList();
-  }
-
   render() {
     return (
       <View>
