@@ -9,7 +9,8 @@ import Row from './Row.js';
 class AtpView extends React.Component {
 
   sortFunction = (player1, player2) => {
-    return player2[this.props.sortType] - player1[this.props.sortType];
+    const sortField = `${this.props.sortType}_tour_live`
+    return player2[sortField] - player1[sortField];
   }
 
   render() {
@@ -18,8 +19,7 @@ class AtpView extends React.Component {
       return (
         <Row
           key={i}
-          currentRank={player.ranking_tour}
-          highestRank={player.ranking_tour_highest}
+          currentRank={i+1}
           rankChange={player.ranking_tour_change}
           playerName={`${player.first_name} ${player.last_name}`}
           playerImage={player.image_url}
@@ -27,9 +27,9 @@ class AtpView extends React.Component {
           currentTournamentName={player.current_tournament_name}
           currentTournamentRound={player.current_tournament_round}
           inTournament={player.in_tournament}
-          pointsCurrent={player.points_tour_live}
+          pointsCurrent={player[`${this.props.sortType}_tour_live`]}
           pointsChange={player.points_tour_change}
-          pointsNext={player.points_tour_next}
+          pointsNext={player[`${this.props.sortType}_tour_next`]}
           pointsNextProb={player.next_prob}
         />
       );

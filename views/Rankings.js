@@ -15,7 +15,7 @@ class Rankings extends React.Component {
 
   render() {
     const { selectedRankingsViewIndex } = this.props;
-    const sortType = selectedRankingsViewIndex === 0 ? 'points_tour_live' : 'elo';
+    const sortType = selectedRankingsViewIndex === 0 ? 'points' : 'elo';
     return (
       <View>
         <Navbar />
