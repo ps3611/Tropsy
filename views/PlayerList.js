@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, ScrollView } from 'react-native';
+import { View, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import { fetchPlayerList } from '../actions/apiActions.js';
 import Row from './Row.js';
@@ -13,39 +13,50 @@ class AtpView extends React.Component {
     return player2[sortField] - player1[sortField];
   }
 
-  render() {
-    const { data } = this.props;
-    const rows = data.sort(this.sortFunction).map((player, i) => {
-      return (
-        <Row
-          key={i}
-          currentRank={i+1}
-          rankChange={player.ranking_tour_change}
-          playerName={`${player.first_name} ${player.last_name}`}
-          playerImage={player.image_url}
-          playerCountry={player.country}
-          currentTournamentName={player.current_tournament_name}
-          currentTournamentRound={player.current_tournament_round}
-          inTournament={player.in_tournament}
-          pointsCurrent={player[`${this.props.sortType}_tour_live`]}
-          pointsChange={player.points_tour_change}
-          pointsNext={player[`${this.props.sortType}_tour_next`]}
-          pointsNextProb={player.next_prob}
-        />
-      );
-    });
+  _keyExtractor = (item, index) => item.first_name + item.last_name;
+
+  _renderItem = ({item, index}) => {
     return (
-      <View>
-        <ScrollView>
-          {rows}
-        </ScrollView>
-      </View>
+      <Row
+        currentRank={index+1}
+        rankChange={item.ranking_tour_change}
+        playerName={`${item.first_name} ${item.last_name}`}
+        playerImage={item.image_url}
+        playerCountry={item.country}
+        currentTournamentName={item.current_tournament_name}
+        currentTournamentRound={item.current_tournament_round}
+        inTournament={item.in_tournament}
+        pointsCurrent={item[`${this.props.sortType}_tour_live`]}
+        pointsChange={item.points_tour_change}
+        pointsNext={item[`${this.props.sortType}_tour_next`]}
+        pointsNextProb={item.next_prob}
+      />
+    );
+  }
+
+  handleEnd = () => {
+    console.log('eeend');
+  }
+
+  render() {
+    const { data,selectedRankingsViewIndex } = this.props;
+    const flatListData = data.sort(this.sortFunction);
+    return (
+      <FlatList
+        data={flatListData}
+        keyExtractor={this._keyExtractor}
+        renderItem={this._renderItem}
+        initialNumToRender={20}
+        onEndReached={this.handleEnd}
+        onEndReachedThreshold={0}
+      />
     );
   }
 }
 
 const mapStateToProps = state => ({
   data: state.api.playerList,
+  selectedRankingsViewIndex: state.settings.selectedRankingsViewIndex,
 });
 
 const mapDispatchToProps = dispatch => ({
