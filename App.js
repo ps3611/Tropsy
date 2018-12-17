@@ -5,11 +5,11 @@ import store from './store.js';
 import Rankings from './views/Rankings.js';
 
 export default class App extends React.Component {
-    render() {
-        return (
-            <Provider store={ store }>
-                <Rankings />
-            </Provider>
-        );
-    }
+  render() {
+    return (
+      <Provider store={ store }>
+        <Rankings />
+      </Provider>
+    );
+  }
 }
