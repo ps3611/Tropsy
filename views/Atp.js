@@ -1,24 +1,18 @@
 import React from 'react';
 import { View, FlatList } from 'react-native';
 import { connect } from 'react-redux';
-import { fetchPlayerList } from '../actions/apiActions.js';
+import { fetchAtpList } from '../actions/apiActions.js';
 import Row from './Row.js';
 
 /* eslint-disable react/prefer-stateless-function, react/jsx-filename-extension, react/prop-types */
 
-class PlayerList extends React.Component {
+class Atp extends React.Component {
 
-  constructor() {
-    super();
-    this.state = { page: 1 }
+  componentDidMount() {
+    this.setState({ page: this.props.maxPages });
   }
 
-  sortFunction = (player1, player2) => {
-    const sortField = `${this.props.sortType}_tour_live`
-    return player2[sortField] - player1[sortField];
-  }
-
-  _keyExtractor = (item, index) => item.first_name + item.last_name;
+  _keyExtractor = (item, index) => item.first_name + item.last_name + 'atp';
 
   _renderItem = ({item, index}) => {
     return (
@@ -31,17 +25,17 @@ class PlayerList extends React.Component {
         currentTournamentName={item.current_tournament_name}
         currentTournamentRound={item.current_tournament_round}
         inTournament={item.in_tournament}
-        pointsCurrent={item[`${this.props.sortType}_tour_live`]}
+        pointsCurrent={item.points_tour_live}
         pointsChange={item.points_tour_change}
-        pointsNext={item[`${this.props.sortType}_tour_next`]}
+        pointsNext={item.points_tour_next}
         pointsNextProb={item.next_prob}
       />
     );
   }
 
   handleEnd = () => {
-    this.setState(state => ({ page: state.page+1 }), () => {
-      this.props.fetchPlayerList(this.state.page);
+    this.setState(state => ({ page: state.page + 1 }), () => {
+      this.props.fetchAtpList(this.state.page);
     })
   }
 
@@ -61,11 +55,12 @@ class PlayerList extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  data: state.api.playerList,
+  data: state.api.atpList,
+  maxPages: state.api.atpPagesLoaded,
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchPlayerList: page => dispatch(fetchPlayerList(page)),
+  fetchAtpList: page => dispatch(fetchAtpList(page)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(PlayerList);
+export default connect(mapStateToProps, mapDispatchToProps)(Atp);

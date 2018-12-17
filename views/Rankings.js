@@ -1,27 +1,27 @@
 import React from 'react';
 import { View } from 'react-native';
 import { connect } from 'react-redux';
-import { fetchPlayerList } from '../actions/apiActions.js';
+import { fetchAtpList, fetchEloList } from '../actions/apiActions.js';
 import Navbar from './Navbar.js';
-import PlayerList from './PlayerList.js';
+import Atp from './Atp.js';
+import Elo from './Elo.js';
 
 /* eslint-disable react/prefer-stateless-function, react/jsx-filename-extension, react/prop-types */
 
 class Rankings extends React.Component {
 
   componentDidMount() {
-    this.props.fetchPlayerList(1);
+    this.props.fetchAtpList(1);
+    this.props.fetchEloList(1);
   }
 
   render() {
     const { selectedRankingsViewIndex } = this.props;
-    const sortType = selectedRankingsViewIndex === 0 ? 'points' : 'elo';
+    const rankingsView = selectedRankingsViewIndex === 0 ? <Atp /> : <Elo />;
     return (
       <View>
         <Navbar />
-        <PlayerList
-          sortType={sortType}
-        />
+        { rankingsView }
       </View>
     );
   }
@@ -32,7 +32,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchPlayerList: page => dispatch(fetchPlayerList(page)),
+  fetchAtpList: page => dispatch(fetchAtpList(page)),
+  fetchEloList: page => dispatch(fetchEloList(page)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Rankings);

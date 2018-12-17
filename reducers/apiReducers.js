@@ -1,19 +1,35 @@
 import * as api from '../actions/apiActions.js';
 
 const initialState = {
-  playerList: [],
+  atpList: [],
+  atpPagesLoaded: 1,
+  eloList: [],
+  eloPagesLoaded: 1,
   errors: {},
 };
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case api.PLAYER_LIST_SUCCESS:
+    case api.ATP_LIST_SUCCESS:
       return {
         ...state,
-        playerList: [...state.playerList, ...action.payload.results],
+        atpList: [...state.atpList, ...action.payload.results],
+        atpPagesLoaded: state.atpPagesLoaded + 1,
         errors: {},
       };
-    case api.PLAYER_LIST_FAILURE:
+    case api.ATP_LIST_FAILURE:
+      return {
+        ...state,
+        errors: action.payload.response || { non_field_errors: action.payload.statusText },
+      };
+    case api.ELO_LIST_SUCCESS:
+      return {
+        ...state,
+        eloList: [...state.eloList, ...action.payload.results],
+        eloPagesLoaded: state.eloPagesLoaded + 1,
+        errors: {},
+      };
+    case api.ELO_LIST_FAILURE:
       return {
         ...state,
         errors: action.payload.response || { non_field_errors: action.payload.statusText },
