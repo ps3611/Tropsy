@@ -10,13 +10,12 @@ export default (state = initialState, action) => {
     case api.PLAYER_LIST_SUCCESS:
       return {
         ...state,
-        playerList: action.payload,
+        playerList: [...state.playerList, ...action.payload.results],
         errors: {},
       };
     case api.PLAYER_LIST_FAILURE:
       return {
         ...state,
-        playerList: [],
         errors: action.payload.response || { non_field_errors: action.payload.statusText },
       };
     default:

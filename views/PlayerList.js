@@ -6,7 +6,12 @@ import Row from './Row.js';
 
 /* eslint-disable react/prefer-stateless-function, react/jsx-filename-extension, react/prop-types */
 
-class AtpView extends React.Component {
+class PlayerList extends React.Component {
+
+  constructor() {
+    super();
+    this.state = { page: 1 }
+  }
 
   sortFunction = (player1, player2) => {
     const sortField = `${this.props.sortType}_tour_live`
@@ -35,20 +40,21 @@ class AtpView extends React.Component {
   }
 
   handleEnd = () => {
-    console.log('eeend');
+    this.setState(state => ({ page: state.page+1 }), () => {
+      this.props.fetchPlayerList(this.state.page);
+    })
   }
 
   render() {
-    const { data,selectedRankingsViewIndex } = this.props;
-    const flatListData = data.sort(this.sortFunction);
+    const { data } = this.props;
     return (
       <FlatList
-        data={flatListData}
+        data={data}
         keyExtractor={this._keyExtractor}
         renderItem={this._renderItem}
         initialNumToRender={20}
         onEndReached={this.handleEnd}
-        onEndReachedThreshold={0}
+        onEndReachedThreshold={0.5}
       />
     );
   }
@@ -56,10 +62,10 @@ class AtpView extends React.Component {
 
 const mapStateToProps = state => ({
   data: state.api.playerList,
-  selectedRankingsViewIndex: state.settings.selectedRankingsViewIndex,
 });
 
 const mapDispatchToProps = dispatch => ({
+  fetchPlayerList: page => dispatch(fetchPlayerList(page)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(AtpView);
+export default connect(mapStateToProps, mapDispatchToProps)(PlayerList);

@@ -10,7 +10,7 @@ import PlayerList from './PlayerList.js';
 class Rankings extends React.Component {
 
   componentDidMount() {
-    this.props.fetchPlayerList();
+    this.props.fetchPlayerList(1);
   }
 
   render() {
@@ -32,7 +32,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchPlayerList: () => dispatch(fetchPlayerList()),
+  fetchPlayerList: page => dispatch(fetchPlayerList(page)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Rankings);
