@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
+import { MediaQueryStyleSheet } from 'react-native-responsive';
 import { Icon, ButtonGroup } from 'react-native-elements';
 
 import { connect } from 'react-redux';
@@ -57,13 +58,25 @@ const mapDispatchToProps = dispatch => ({
 
 export default connect(mapStateToProps, mapDispatchToProps)(Navbar);
 
-const styles = StyleSheet.create({
-  navbar: {
-    flexDirection: 'row',
-    paddingTop: 30,
-    height: 110,
-    backgroundColor: '#F7F7F7',
-    borderBottomColor: 'lightgrey',
-    borderBottomWidth: 0.5,
+
+export const IPHONE_X = `@media (min-device-width: 375px) and (min-device-height: 812px)`;
+const styles = MediaQueryStyleSheet.create(
+  {
+    navbar: {
+      flexDirection: 'row',
+      paddingTop: 20,
+      height: 80,
+      backgroundColor: '#F7F7F7',
+      borderBottomColor: 'lightgrey',
+      borderBottomWidth: 0.5,
+    },
   },
-});
+  {
+    [IPHONE_X]: {
+      navbar: {
+        paddingTop: 30,
+        height: 100,
+      },
+    }
+  }
+);
