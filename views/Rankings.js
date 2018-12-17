@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 import { connect } from 'react-redux';
 import { fetchAtpList, fetchEloList } from '../actions/apiActions.js';
 import Navbar from './Navbar.js';
@@ -16,10 +16,19 @@ class Rankings extends React.Component {
   }
 
   render() {
-    const { selectedRankingsViewIndex } = this.props;
+    const { selectedRankingsViewIndex, loading } = this.props;
     const rankingsView = selectedRankingsViewIndex === 0 ? <Atp /> : <Elo />;
+    if (loading) {
+      return (
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+          <Text>
+            Loading...
+          </Text>
+        </View>
+      );
+    }
     return (
-      <View>
+      <View style={{ flex: 1 }}>
         <Navbar />
         { rankingsView }
       </View>
@@ -29,6 +38,8 @@ class Rankings extends React.Component {
 
 const mapStateToProps = state => ({
   selectedRankingsViewIndex: state.settings.selectedRankingsViewIndex,
+  loading: state.rankingsPage.loading,
+  errors: state.rankingsPage.errors,
 });
 
 const mapDispatchToProps = dispatch => ({

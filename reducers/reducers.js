@@ -7,5 +7,5 @@ import rankingsPageReducer from './page/rankingsPageReducer.js';
 export default combineReducers({
   api: apiReducers,
   settings: settingsReducers,
-  scorePage: rankingsPageReducer,
+  rankingsPage: rankingsPageReducer,
 });

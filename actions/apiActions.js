@@ -1,7 +1,7 @@
 import { RSAA } from 'redux-api-middleware';
 
-// const baseUrl = 'http://34.201.104.13:8000'; // AWS
-const baseUrl = 'http://127.0.0.1:8000'; // desktop mobile
+const baseUrl = 'http://34.201.104.13:8000'; // AWS
+// const baseUrl = 'http://127.0.0.1:8000'; // desktop mobile
 // const baseUrl = 'http://192.168.0.159:8000'; // mobile???
 
 export const ATP_LIST_REQUEST = '@@api/ATP_LIST_REQUEST';
