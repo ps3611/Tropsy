@@ -1,7 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
 import { Icon, ButtonGroup } from 'react-native-elements';
-import styles from '../styles/Navbar.js';
+import style from '../styles/Navbar.js';
 
 import { connect } from 'react-redux';
 import { selectRankingsViewIndex } from '../actions/settingsAction.js';
@@ -28,19 +28,19 @@ class Navbar extends React.Component {
     const { selectedRankingsViewIndex } = this.props;
     const { selectedIndex } = this.state;
     return (
-      <View style={styles.navbar}>
-        <View style={styles.menuView}>
+      <View style={style.navbar}>
+        <View style={style.menuView}>
           <Icon name="menu" />
         </View>
-        <View style={styles.buttonView}>
+        <View style={style.buttonView}>
           <ButtonGroup
             onPress={this.toggleView}
             selectedIndex={(selectedIndex+1)%2}
             buttons={buttons}
-            containerStyle={styles.buttonGroup}
+            containerStyle={style.buttonGroup}
           />
         </View>
-        <View style={styles.infoView}>
+        <View style={style.infoView}>
           <Icon name="info-outline" />
         </View>
       </View>
