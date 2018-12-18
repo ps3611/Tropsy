@@ -2,9 +2,9 @@ import * as api from '../actions/apiActions.js';
 
 const initialState = {
   atpList: [],
-  atpPagesLoaded: 1,
+  atpPagesLoaded: 0,
   eloList: [],
-  eloPagesLoaded: 1,
+  eloPagesLoaded: 0,
   errors: {},
 };
 

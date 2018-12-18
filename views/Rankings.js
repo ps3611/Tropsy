@@ -16,9 +16,9 @@ class Rankings extends React.Component {
   }
 
   render() {
-    const { selectedRankingsViewIndex, loading } = this.props;
+    const { selectedRankingsViewIndex, loading, atpPagesLoaded } = this.props;
     const rankingsView = selectedRankingsViewIndex === 0 ? <Atp /> : <Elo />;
-    if (loading) {
+    if (loading && atpPagesLoaded === 0) {
       return (
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
           <Image source={require('../assets/loading.gif')} />
@@ -35,6 +35,7 @@ class Rankings extends React.Component {
 }
 
 const mapStateToProps = state => ({
+  atpPagesLoaded: state.api.atpPagesLoaded,
   selectedRankingsViewIndex: state.settings.selectedRankingsViewIndex,
   loading: state.rankingsPage.loading,
   errors: state.rankingsPage.errors,
