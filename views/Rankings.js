@@ -5,6 +5,8 @@ import { fetchAtpList, fetchEloList } from '../actions/apiActions.js';
 import Navbar from './Navbar.js';
 import Atp from './Atp.js';
 import Elo from './Elo.js';
+import style from '../styles/Rankings.js';
+
 
 /* eslint-disable react/prefer-stateless-function, react/jsx-filename-extension, react/prop-types */
 
@@ -20,13 +22,13 @@ class Rankings extends React.Component {
     const rankingsView = selectedRankingsViewIndex === 0 ? <Atp /> : <Elo />;
     if (loading && atpPagesLoaded === 0) {
       return (
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <View style={style.loadingView}>
           <Image source={require('../assets/loading.gif')} />
         </View>
       );
     }
     return (
-      <View style={{ flex: 1 }}>
+      <View style={style.rankingsView}>
         <Navbar />
         { rankingsView }
       </View>
