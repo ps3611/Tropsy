@@ -1,17 +1,17 @@
 {
   "expo": {
-    "name": "tr-front",
-    "description": "This project is really great.",
+    "name": "Tropsy",
+    "description": "Tennis rankings app.",
     "slug": "tr-front",
     "privacy": "public",
     "sdkVersion": "31.0.0",
     "platforms": ["ios", "android"],
-    "version": "1.0.0",
+    "version": "2.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
       "image": "./assets/splash.png",
-      "resizeMode": "contain",
+      "resizeMode": "cover",
       "backgroundColor": "#ffffff"
     },
     "updates": {
@@ -21,7 +21,8 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.petertasschindler.tropsy"
     }
   }
 }
