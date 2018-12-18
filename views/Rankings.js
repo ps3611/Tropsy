@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Image } from 'react-native';
 import { connect } from 'react-redux';
 import { fetchAtpList, fetchEloList } from '../actions/apiActions.js';
 import Navbar from './Navbar.js';
@@ -21,9 +21,7 @@ class Rankings extends React.Component {
     if (loading) {
       return (
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-          <Text>
-            Loading...
-          </Text>
+          <Image source={require('../assets/loading.gif')} />
         </View>
       );
     }
