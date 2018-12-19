@@ -22,7 +22,7 @@ module.exports = MediaQueryStyleSheet.create(
       alignItems: 'center',
     },
     buttonView: {
-      flex: 4,
+      flex: 12,
       justifyContent: 'center',
       alignItems: 'center',
     },

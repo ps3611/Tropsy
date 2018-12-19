@@ -30,7 +30,9 @@ class Navbar extends React.Component {
     return (
       <View style={style.navbar}>
         <View style={style.menuView}>
-          <Icon name="menu" />
+          {
+            // <Icon name="menu" />
+          }
         </View>
         <View style={style.buttonView}>
           <ButtonGroup
@@ -41,7 +43,9 @@ class Navbar extends React.Component {
           />
         </View>
         <View style={style.infoView}>
-          <Icon name="info-outline" />
+          {
+            // <Icon name="info-outline" />
+          }
         </View>
       </View>
     );
