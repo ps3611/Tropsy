@@ -3,8 +3,7 @@ import { View, Image } from 'react-native';
 import { connect } from 'react-redux';
 import { fetchAtpList, fetchEloList } from '../actions/apiActions';
 import Navbar from './Navbar';
-import Atp from './Atp';
-import Elo from './Elo';
+import RowList from './RowList';
 import style from '../styles/Rankings';
 
 const loadingGif = require('../assets/loading.gif');
@@ -17,8 +16,18 @@ class Rankings extends React.Component {
   }
 
   render() {
-    const { selectedRankingsViewIndex, loading, atpPagesLoaded } = this.props;
-    const rankingsView = selectedRankingsViewIndex === 0 ? <Atp /> : <Elo />;
+    const {
+      loading,
+      selectedRankingsViewIndex,
+      atpPagesLoaded,
+      atpData,
+      eloPagesLoaded,
+      eloData,
+    } = this.props;
+    const type = selectedRankingsViewIndex === 0 ? 'atp' : 'elo';
+    const fetchFunction = selectedRankingsViewIndex === 0 ? this.props.fetchAtpList : this.props.fetchEloList;
+    const data = selectedRankingsViewIndex === 0 ? atpData : eloData;
+    const pagesLoaded = selectedRankingsViewIndex === 0 ? atpPagesLoaded : eloPagesLoaded;
     if (loading && atpPagesLoaded === 0) {
       return (
         <View style={style.loadingView}>
@@ -29,14 +38,22 @@ class Rankings extends React.Component {
     return (
       <View style={style.rankingsView}>
         <Navbar />
-        { rankingsView }
+        <RowList
+          type={type}
+          fetchFunction={fetchFunction}
+          data={data}
+          pagesLoaded={pagesLoaded}
+        />
       </View>
     );
   }
 }
 
 const mapStateToProps = state => ({
+  atpData: state.api.atpList,
   atpPagesLoaded: state.api.atpPagesLoaded,
+  eloData: state.api.eloList,
+  eloPagesLoaded: state.api.eloPagesLoaded,
   selectedRankingsViewIndex: state.settings.selectedRankingsViewIndex,
   loading: state.rankingsPage.loading,
   errors: state.rankingsPage.errors,
