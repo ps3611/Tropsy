@@ -1,31 +1,27 @@
 import React from 'react';
 import { View } from 'react-native';
 import { Icon, ButtonGroup } from 'react-native-elements';
-import style from '../styles/Navbar.js';
-
 import { connect } from 'react-redux';
-import { selectRankingsViewIndex } from '../actions/settingsAction.js';
+import style from '../styles/Navbar';
+import { selectRankingsViewIndex } from '../actions/settingsAction';
 
-const buttons = ['ATP','ELO'];
-/* eslint-disable react/prefer-stateless-function, react/jsx-filename-extension, react/prop-types */
+const buttons = ['ATP', 'ELO'];
 
 
 class Navbar extends React.Component {
-
-  constructor () {
+  constructor() {
     super();
     this.state = {
       selectedIndex: 0,
-    }
+    };
   }
 
   toggleView = (selectedIndex) => {
     this.props.onSelect(selectedIndex);
-    this.setState({selectedIndex})
+    this.setState({ selectedIndex });
   }
 
   render() {
-    const { selectedRankingsViewIndex } = this.props;
     const { selectedIndex } = this.state;
     return (
       <View style={style.navbar}>
@@ -37,7 +33,7 @@ class Navbar extends React.Component {
         <View style={style.buttonView}>
           <ButtonGroup
             onPress={this.toggleView}
-            selectedIndex={(selectedIndex+1)%2}
+            selectedIndex={(selectedIndex + 1) % 2}
             buttons={buttons}
             containerStyle={style.buttonGroup}
           />
@@ -53,11 +49,10 @@ class Navbar extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  selectedRankingsViewIndex: state.settings.selectedRankingsViewIndex,
 });
 
 const mapDispatchToProps = dispatch => ({
-  onSelect: index => dispatch(selectRankingsViewIndex(index))
+  onSelect: index => dispatch(selectRankingsViewIndex(index)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Navbar);

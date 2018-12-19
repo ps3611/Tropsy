@@ -1,4 +1,4 @@
-import * as settings from '../actions/settingsAction.js';
+import * as settings from '../actions/settingsAction';
 
 const initialState = {
   selectedRankingsViewIndex: 0,

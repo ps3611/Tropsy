@@ -1,42 +1,40 @@
 import React from 'react';
-import { View, FlatList } from 'react-native';
+import { FlatList } from 'react-native';
 import { connect } from 'react-redux';
-import { fetchEloList } from '../actions/apiActions.js';
-import Row from './Row.js';
+import { fetchEloList } from '../actions/apiActions';
+import Row from './Row';
 
-/* eslint-disable react/prefer-stateless-function, react/jsx-filename-extension, react/prop-types */
 
 class Elo extends React.Component {
-
   componentDidMount() {
-    this.setState({ page: this.props.maxPages });
+    const { maxPages } = this.props;
+    this.setState({ page: maxPages });
   }
 
-  _keyExtractor = (item, index) => item.first_name + item.last_name + 'elo';
+  keyExtractor = item => `${item.first_name}${item.last_name}elo`;
 
-  _renderItem = ({item, index}) => {
-    return (
-      <Row
-        currentRank={index+1}
-        rankChange={item.ranking_tour_change}
-        playerName={`${item.first_name} ${item.last_name}`}
-        playerImage={item.image_url}
-        playerCountry={item.country}
-        currentTournamentName={item.current_tournament_name}
-        currentTournamentRound={item.current_tournament_round}
-        inTournament={item.in_tournament}
-        pointsCurrent={item.elo_tour_live}
-        pointsChange={item.points_tour_change}
-        pointsNext={item.elo_tour_next}
-        pointsNextProb={item.next_prob}
-      />
-    );
-  }
+  renderItem = ({ item, index }) => (
+    <Row
+      currentRank={index + 1}
+      rankChange={item.ranking_tour_change}
+      playerName={`${item.first_name} ${item.last_name}`}
+      playerImage={item.image_url}
+      playerCountry={item.country}
+      currentTournamentName={item.current_tournament_name}
+      currentTournamentRound={item.current_tournament_round}
+      inTournament={item.in_tournament}
+      pointsCurrent={item.elo_tour_live}
+      pointsChange={item.points_tour_change}
+      pointsNext={item.elo_tour_next}
+      pointsNextProb={item.next_prob}
+    />
+  );
 
   handleEnd = () => {
-    this.setState(state => ({ page: state.page+1 }), () => {
-      this.props.fetchEloList(this.state.page);
-    })
+    this.setState(state => ({ page: state.page + 1 }), () => {
+      const { page } = this.state;
+      this.props.fetchEloList(page);
+    });
   }
 
   render() {
@@ -44,8 +42,8 @@ class Elo extends React.Component {
     return (
       <FlatList
         data={data}
-        keyExtractor={this._keyExtractor}
-        renderItem={this._renderItem}
+        keyExtractor={this.keyExtractor}
+        renderItem={this.renderItem}
         initialNumToRender={20}
         onEndReached={this.handleEnd}
         onEndReachedThreshold={0.5}

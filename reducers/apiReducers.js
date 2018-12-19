@@ -1,4 +1,4 @@
-import * as api from '../actions/apiActions.js';
+import * as api from '../actions/apiActions';
 
 const initialState = {
   atpList: [],

@@ -1,17 +1,16 @@
 import React from 'react';
 import { View, Image } from 'react-native';
 import { connect } from 'react-redux';
-import { fetchAtpList, fetchEloList } from '../actions/apiActions.js';
-import Navbar from './Navbar.js';
-import Atp from './Atp.js';
-import Elo from './Elo.js';
-import style from '../styles/Rankings.js';
+import { fetchAtpList, fetchEloList } from '../actions/apiActions';
+import Navbar from './Navbar';
+import Atp from './Atp';
+import Elo from './Elo';
+import style from '../styles/Rankings';
 
+const loadingGif = require('../assets/loading.gif');
 
-/* eslint-disable react/prefer-stateless-function, react/jsx-filename-extension, react/prop-types */
 
 class Rankings extends React.Component {
-
   componentDidMount() {
     this.props.fetchAtpList(1);
     this.props.fetchEloList(1);
@@ -23,7 +22,7 @@ class Rankings extends React.Component {
     if (loading && atpPagesLoaded === 0) {
       return (
         <View style={style.loadingView}>
-          <Image source={require('../assets/loading.gif')} />
+          <Image source={loadingGif} />
         </View>
       );
     }

@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
-import apiReducers from './apiReducers.js';
-import settingsReducers from './settingsReducers.js';
-import rankingsPageReducer from './page/rankingsPageReducer.js';
+import apiReducers from './apiReducers';
+import settingsReducers from './settingsReducers';
+import rankingsPageReducer from './page/rankingsPageReducer';
 
 
 export default combineReducers({
