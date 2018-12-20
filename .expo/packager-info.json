@@ -1,9 +1,9 @@
 {
   "devToolsPort": 19002,
-  "expoServerPort": 19000,
-  "packagerPort": 19001,
-  "packagerPid": 13046,
-  "expoServerNgrokUrl": "https://td-b6s.peterschindler26.tr-front.exp.direct",
-  "packagerNgrokUrl": "https://packager.td-b6s.peterschindler26.tr-front.exp.direct",
-  "ngrokPid": 13073
+  "expoServerPort": null,
+  "packagerPort": null,
+  "packagerPid": null,
+  "expoServerNgrokUrl": "https://td-b6s.peterschindler26.tropsy.exp.direct",
+  "packagerNgrokUrl": "https://packager.td-b6s.peterschindler26.tropsy.exp.direct",
+  "ngrokPid": 18536
 }
