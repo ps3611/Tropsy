@@ -1,2 +1,3 @@
-# Tropsy Frontend
-More description coming shortly
+# Tropsy
+The tennis rankings app.
+More description coming shortly...
