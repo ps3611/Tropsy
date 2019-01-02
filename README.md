@@ -4,7 +4,9 @@ Download now from the App Store 📲
 
 [itunes.apple.com/us/app/tropsy/id1296953331](https://itunes.apple.com/us/app/tropsy/id1296953331)
 
-![Img](https://s3.amazonaws.com/ps3611-images/tropsy.png)
+<p align="center">
+  <img width="600" alt="main interface" src="https://s3.amazonaws.com/ps3611-images/tropsy.png">
+</p>
 
 ## Idea
 
