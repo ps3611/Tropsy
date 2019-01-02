@@ -4,11 +4,11 @@ Download now from the App Store 📲
 
 [itunes.apple.com/us/app/tropsy/id1296953331](https://itunes.apple.com/us/app/tropsy/id1296953331)
 
-![Img](https://s3.amazonaws.com/ps3611-images/hooli-homes.png)
+![Img](https://s3.amazonaws.com/ps3611-images/tropsy.png)
 
 ## Idea
 
-With so many homes for sale in today's real estate market, it is really challenging to find exactly what you are looking for. That's where [Hooli Homes](http://hoolihomes.eu/) comes to the rescue! With its simple user interface and easy-to-use filter functionality, find the home that meets your criteria within minutes 💪🏼
+Still looking for your favourite tennis app? Look no further. With its elegant UI and its detailed ATP end ELO rankings, [Trospy](https://itunes.apple.com/us/app/tropsy/id1296953331) is going to blow your mind! 😍
 
 ## Tech
 
@@ -22,7 +22,7 @@ With so many homes for sale in today's real estate market, it is really challeng
 
 1. Clone repository
 ```sh
-> git clone https://github.com/ps3611/hoolihomes.git
+> git clone https://github.com/ps3611/tropsy.git
 ```
 For each directory *cron*, *server* and *client*, do:
 
