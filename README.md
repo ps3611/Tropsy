@@ -1,5 +1,7 @@
 # Tropsy
 
+Still looking for your favourite tennis app? Look no further. With its elegant UI and its detailed ATP end ELO rankings, [Trospy](https://itunes.apple.com/us/app/tropsy/id1296953331) is going to blow your mind! 🤯
+
 Download now from the App Store 📲
 
 [itunes.apple.com/us/app/tropsy/id1296953331](https://itunes.apple.com/us/app/tropsy/id1296953331)
@@ -7,10 +9,6 @@ Download now from the App Store 📲
 <p align="center">
   <img width="600" alt="main interface" src="https://s3.amazonaws.com/ps3611-images/tropsy.png">
 </p>
-
-## Idea
-
-Still looking for your favourite tennis app? Look no further. With its elegant UI and its detailed ATP end ELO rankings, [Trospy](https://itunes.apple.com/us/app/tropsy/id1296953331) is going to blow your mind! 😍
 
 ## Tech
 
@@ -28,19 +26,21 @@ Still looking for your favourite tennis app? Look no further. With its elegant U
 ```
 For each directory *cron*, *server* and *client*, do:
 
-2. Install dependencies
+2. Launch server
 ```sh
+> npm install
+> npm install
 > npm install
 ```
 
-3. Configure environment
+3. Popuplate datebase
 
 ```sh
 > cp .env.example .env
 # Edit .env
 ```
 
-4. Launch directory's code
+4. Launch frontend
 
 ```sh
 > npm start
