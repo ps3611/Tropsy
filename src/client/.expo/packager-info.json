@@ -2,8 +2,8 @@
   "devToolsPort": 19002,
   "expoServerPort": 19000,
   "packagerPort": 19001,
-  "packagerPid": 21640,
-  "expoServerNgrokUrl": "https://8s-sah.peterschindler26.frontend.exp.direct",
-  "packagerNgrokUrl": "https://packager.8s-sah.peterschindler26.frontend.exp.direct",
-  "ngrokPid": 21665
+  "packagerPid": 86309,
+  "expoServerNgrokUrl": "https://8s-sah.peterschindler26.client.exp.direct",
+  "packagerNgrokUrl": "https://packager.8s-sah.peterschindler26.client.exp.direct",
+  "ngrokPid": 86340
 }
