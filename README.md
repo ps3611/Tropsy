@@ -2,9 +2,7 @@
 
 Still looking for your favourite tennis app? Look no further. With its elegant UI and its detailed ATP end ELO rankings, [Trospy](https://itunes.apple.com/us/app/tropsy/id1296953331) is going to blow your mind! 🤯
 
-Download now from the App Store 📲
-
-[itunes.apple.com/us/app/tropsy/id1296953331](https://itunes.apple.com/us/app/tropsy/id1296953331)
+Download now from the App Store 📲 [itunes.apple.com/us/app/tropsy/id1296953331](https://itunes.apple.com/us/app/tropsy/id1296953331)
 
 <p align="center">
   <img width="600" alt="main interface" src="https://s3.amazonaws.com/ps3611-images/tropsy.png">
@@ -24,26 +22,37 @@ Download now from the App Store 📲
 ```sh
 > git clone https://github.com/ps3611/tropsy.git
 ```
-For each directory *cron*, *server* and *client*, do:
 
 2. Launch server
 ```sh
-> npm install
-> npm install
-> npm install
+# cd into server folder
+> cd src/server/
+
+# activate virtual environment
+> source env/bin/activate
+
+# launch django server
+> python manage.py runserver
 ```
 
 3. Popuplate datebase
 
 ```sh
-> cp .env.example .env
-# Edit .env
+# cd into cron folder
+cd src/cron/
+
+# run cron script to populate database
+python main.py
 ```
 
-4. Launch frontend
+4. Launch front end
 
 ```sh
-> npm start
+# cd into client folder
+cd src/client/
+
+# launch react native
+npm start
 ```
 
 ## License
