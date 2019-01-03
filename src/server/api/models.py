@@ -24,6 +24,5 @@ class Player(models.Model):
     elo_tour_change = models.IntegerField(null=True, blank=True)
     next_prob = models.IntegerField(null=True, blank=True)
 
-
     class Meta:
         ordering = ('-points_tour_live',)

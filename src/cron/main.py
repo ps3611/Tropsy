@@ -2,19 +2,21 @@ import json
 import requests
 import random
 
-# ENDPOINT_URL = 'http://34.201.104.13:8000' #AWS
-ENDPOINT_URL = 'http://127.0.0.1:8000'; # desktop mobile
-# ENDPOINT_URL = 'http://192.168.1.23:8000'; # mobile
+ENDPOINT_URL = 'http://34.201.104.13:8000' #AWS
 
-# # get old data
-# r = requests.get(url = ENDPOINT_URL + "/players/")
-# old_data = r.json()
-#
-# # delete old data
-# for i in range(len(old_data)):
-#     id = old_data[i]['id']
-#     r = requests.delete(ENDPOINT_URL + "/players/"+str(id)+"/")
-#     print(r.status_code, r.reason)
+# get old data
+old_data = []
+next_url = ENDPOINT_URL + "/rankings/atp/"
+while next_url is not None:
+    r = requests.get(url = next_url)
+    next_url = r.json()['next']
+    old_data += r.json()['results']
+
+# delete old data
+for i in range(len(old_data)):
+    id = old_data[i]['id']
+    r = requests.delete(ENDPOINT_URL + "/rankings/atp/"+str(id)+"/")
+    print(r.status_code, r.reason)
 
 # load rankings json data
 with open('./db/atp-rankings.json') as i:
@@ -65,5 +67,5 @@ for i in range(len(rankings_data)):
         "elo_tour_change": int(round(random.uniform(-1, 1)*10))*10 if random.uniform(0, 1)>0.7 else None,
         "next_prob": round(random.uniform(0, 1)*100) if is_in_tour else None,
     }
-    r = requests.post( ENDPOINT_URL + "/players/", data = data )
+    r = requests.post( ENDPOINT_URL + "/rankings/atp/", data = data )
     print(r.status_code, r.reason)

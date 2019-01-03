@@ -76,18 +76,14 @@ WSGI_APPLICATION = 'tropsy.wsgi.application'
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
 DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.postgresql',
-    #     'HOST': 'tennisroo.cd16zrysaphf.eu-west-2.rds.amazonaws.com',
-    #     'NAME': 'tennisroo',
-    #     'USER': 'master_user',
-    #     'PASSWORD': 'tennisroo',
-    #     'PORT': '5432',
-    # },
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+        'ENGINE': 'django.db.backends.postgresql',
+        'HOST': 'tennisroo.cd16zrysaphf.eu-west-2.rds.amazonaws.com',
+        'NAME': 'tennisroo',
+        'USER': 'master_user',
+        'PASSWORD': 'tennisroo',
+        'PORT': '5432',
+    },
 }
 
 REST_FRAMEWORK = {
